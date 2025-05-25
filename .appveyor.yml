@@ -1,0 +1,19 @@
+version: '{build}'
+image: Ubuntu 20.04
+
+environment:
+  nodejs_version: '20'
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+
+build_script:
+  - npm run build
+  - ps: if (Test-Path dist) { Get-ChildItem dist } else { Write-Error "Папка dist не найдена!" }
+
+test_script:
+  - npm test
+
+deploy_script:
+  - npm run deploy
