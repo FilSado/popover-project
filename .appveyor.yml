@@ -1,6 +1,5 @@
 version: '{build}'
-image: Visual Studio 2022
-configuration: Release
+image: Ubuntu 20.04
 
 environment:
   nodejs_version: '20'
@@ -16,16 +15,5 @@ build_script:
 test_script:
   - npm test
 
-artifacts:
-  - path: dist
-    name: dist
-
-deploy:
-  - provider: GitHubPages
-    token:
-      secure: Mpjg9R/ZacrbST5Yk+VTwsWTGr8mUKtiNxRtUNZxOK7zVoq+Ef1bOkvRbbuZ923d
-    branch: gh-pages
-    folder: dist
-
-on_success:
-  - ps: echo "Deployment to GitHub Pages successful!"
+deploy_script:
+  - npm run deploy
