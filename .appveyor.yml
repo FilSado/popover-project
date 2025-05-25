@@ -24,7 +24,7 @@ deploy:
   - provider: GitHubPages
     token:
       secure: Mpjg9R/ZacrbST5Yk+VTwsWTGr8mUKtiNxRtUNZxOK7zVoq+Ef1bOkvRbbuZ923d
-    repository: FilSado/popover-project
+    repository: https://github.com/FilSado/popover-project
     branch: gh-pages
     folder: dist
 
