@@ -1,18 +1,31 @@
 version: '{build}'
 image: Visual Studio 2022
+configuration: Release
+
 environment:
-  nodejs_version: '18.x'
+  nodejs_version: '20'
+
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
+
 build_script:
   - npm run build
+
 test_script:
   - npm test
-deploy_script:
-  - git config --global user.email "youremail@example.com"
-  - git config --global user.name "Your Name"
-  - git remote set-url origin https://git:${GH_TOKEN}@github.com/${APPVEYOR_REPO_NAME}.git
-  - npm run deploy
+
+artifacts:
+  - path: dist
+    name: dist
+
+deploy:
+  - provider: GitHubPages
+    access_token:
+      secure: Mpjg9R/ZacrbST5Yk+VTwsWTGr8mUKtiNxRtUNZxOK7zVoq+Ef1bOkvRbbuZ923d
+    repository: FilSado/popover-project
+    branch: gh-pages
+    folder: dist
+
 on_success:
   - ps: echo "Deployment to GitHub Pages successful!"
