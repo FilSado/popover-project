@@ -1,6 +1,5 @@
 version: '{build}'
 image: Visual Studio 2022
-build_mode: Script
 configuration: Release
 
 environment:
