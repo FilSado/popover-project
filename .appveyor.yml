@@ -1,5 +1,6 @@
 version: '{build}'
-image: Ubuntu 20.04
+image: Visual Studio 2022
+configuration: Release
 
 environment:
   nodejs_version: '20'
@@ -16,4 +17,10 @@ test_script:
   - npm test
 
 deploy_script:
-  - npm run deploy
+  - ps: npm run deploy
+
+on_success:
+  - ps: echo "Deployment to GitHub Pages successful!"
+
+
+
