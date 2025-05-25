@@ -11,7 +11,7 @@ install:
 
 build_script:
   - npm run build
-  - if (Test-Path dist) { Get-ChildItem dist } else { Write-Error "Папка dist не найдена!" }
+  - ps: if (Test-Path dist) { Get-ChildItem dist } else { Write-Error "Папка dist не найдена!" }
 
 test_script:
   - npm test
@@ -30,4 +30,3 @@ deploy:
 
 on_success:
   - ps: echo "Deployment to GitHub Pages successful!"
-
