@@ -1,0 +1,18 @@
+version: '{build}'
+image: Visual Studio 2022
+environment:
+  nodejs_version: '18.x'
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+build_script:
+  - npm run build
+test_script:
+  - npm test
+deploy_script:
+  - git config --global user.email "youremail@example.com"
+  - git config --global user.name "Your Name"
+  - git remote set-url origin https://git:${GH_TOKEN}@github.com/${APPVEYOR_REPO_NAME}.git
+  - npm run deploy
+on_success:
+  - ps: echo "Deployment to GitHub Pages successful!"
