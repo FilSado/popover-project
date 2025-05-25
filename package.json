@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
     "test": "jest",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --repo https://%GITHUB_TOKEN%@github.com/FilSado/popover-project.git",
     "start": "webpack serve --config webpack.config.js --open"
   },
   "jest": {
@@ -48,3 +48,4 @@
     "core-js": "^3.36.0"
   }
 }
+
