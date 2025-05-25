@@ -22,7 +22,7 @@ artifacts:
 
 deploy:
   - provider: GitHubPages
-    access_token:
+    token:
       secure: Mpjg9R/ZacrbST5Yk+VTwsWTGr8mUKtiNxRtUNZxOK7zVoq+Ef1bOkvRbbuZ923d
     repository: FilSado/popover-project
     branch: gh-pages
